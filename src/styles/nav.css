@@ -28,9 +28,12 @@ nav {
   font-size: 22px;
   cursor: pointer;
 }
+.btn-cart{
+  z-index: 999;
+}
 .Cart {
-  width: calc(100% - 70px);
-  height: 90vh;
+  width: 80%;
+  height: 88.7vh;
   background-color: var(--primary);
   padding: 20px;
   position: fixed;

@@ -60,7 +60,7 @@ const Nav = () => {
         <Link to="/store" className="btn-nav">
           <i className="bx bx-store"></i>
         </Link>
-        <button className="btn-nav" onClick={handleShow}>
+        <button className="btn-nav btn-cart" onClick={handleShow}>
           <i className={showCart ? "bx bx-x" : "bx bx-cart"}></i>
         </button>
       </div>
