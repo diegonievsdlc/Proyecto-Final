@@ -1,6 +1,6 @@
 .img {
-  max-width: 250px;
-  max-height: 199px;
+  width: 250px;
+  height: 199px;
   object-fit: contain;
   margin: auto;
 }

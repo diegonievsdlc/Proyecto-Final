@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setModal } from "../store/slices/modal.slice";
 import { categoryProduct } from "../store/slices/products.slice";
 import "../styles/filter.css";
 
@@ -9,6 +10,10 @@ const Filter = () => {
   const [showPrice, setShowPrice] = useState(false);
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch()
+  const filterPrice = e => {
+    e.preventDefault()
+    dispatch(setModal('Opcion no disponible'))
+  }
   return (
     <div className="Filter">
       <button onClick={() => setFilterOpen(true)}>
@@ -33,7 +38,7 @@ const Filter = () => {
               ></i>
             </button>
             <div className="contenido">
-              <form>
+              <form onSubmit={filterPrice}>
                 <div>
                   <label htmlFor="from">From</label>
                   <input type="number" id="from"/>

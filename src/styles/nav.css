@@ -33,7 +33,7 @@ nav {
 }
 .Cart {
   width: 80%;
-  height: 80vh;
+  height: 85vh;
   background-color: var(--primary);
   padding: 20px;
   position: fixed;
@@ -71,6 +71,7 @@ nav {
   color: var(--secondary);
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 .box-cart > h4 {
   color: var(--quaternary);

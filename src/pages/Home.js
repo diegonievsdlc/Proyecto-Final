@@ -4,7 +4,6 @@ import { Search, Filter, ProductCard } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/slices/products.slice";
 import { getCategory } from "../store/slices/categories.slice";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const products = useSelector((state) => state.products);
@@ -22,9 +21,7 @@ const Home = () => {
       <ul className="main">
         {
           products.map(product => (
-            <Link to={`/product/${product.id}`} key={product.id}>
-              <ProductCard product={product}/>
-            </Link>
+              <ProductCard product={product} key={product.id}/>
           ))
         }
       </ul>

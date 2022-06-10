@@ -7,6 +7,7 @@ import { categoryProduct } from "../store/slices/products.slice";
 import { ProductCard } from "../components";
 import "../styles/productItem.css";
 import { addProduct } from "../store/slices/cart.slice";
+import { setModal } from "../store/slices/modal.slice";
 
 const ProductItem = () => {
   const [data, setData] = useState({});
@@ -33,6 +34,7 @@ const ProductItem = () => {
       quantity: quantity,
     };
     dispatch(addProduct(product))
+    dispatch(setModal('Producto agregado'))
   };
   const restarQuantity = () => {
     if(quantity > 1)setQuantity(quantity - 1)
