@@ -33,7 +33,7 @@ nav {
 }
 .Cart {
   width: 80%;
-  height: 88.7vh;
+  height: 100vh;
   background-color: var(--primary);
   padding: 20px;
   position: fixed;
@@ -139,6 +139,7 @@ nav {
   .Cart{
     width: 25%;
     padding: 20px 5px 20px 20px;
+    height: 90vh;
   }
   .main-cart{
     padding: 0 20px 20px 0;
