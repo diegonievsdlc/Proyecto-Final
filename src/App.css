@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary: #151515;
+  --secondary: #3f3f40;
+  --tertiary: #69696a;
+  --quaternary: #929295;
+  --text-gray: #e6e6ea;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  padding: 70px 0 0;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  background-color: var(--primary);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+footer {
+  padding: 30px 0;
+  background: var(--primary);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--text-gray);
+  max-width: 360px;
+  margin: auto;
+}
+footer h2 {
+  font-size: 25px;
+  color: var(--quaternary);
+}
+footer > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+footer > div a {
+  width: 50px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background-color: var(--quaternary);
+  color: var(--text-gray);
+}
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .8);
+  z-index: 100;
+  transition: .35s;
 }
 
-.App-link {
-  color: #61dafb;
+.modal> div{
+  width: 300px;
+  background-color: var(--primary);
+  border-radius: 20px;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--text-gray);
+  text-align: center;
+  padding: 20px;
+  font-size: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal > div button{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+}
+@media (min-width: 1000px) {
+  ::-webkit-scrollbar {
+    width: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  ::-webkit-scrollbar-track {
+    background: var(--primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--text-gray);
+    border-radius: 5px;
+  }
+  footer{
+    max-width: 1000px;
   }
 }

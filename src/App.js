@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Nav, LoadingScreen, ProtectedRoutes, Modal } from "./components";
+import { Home, Login, ProductItem, User, Store } from "./pages";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isLoading = useSelector((state) => state.loading);
+  const showModal = useSelector(state => state.modal)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      {isLoading && <LoadingScreen />}
+      <Nav />
+      {showModal !== null && <Modal text={showModal}/>}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductItem />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/user" element={<User />} />
+          <Route path="/store" element={<Store />} />
+        </Route>
+      </Routes>
+      <footer>
+        <h2>@ Academlo 2022</h2>
+        <div>
+          <a href="/">
+            <i className="bx bxl-instagram"></i>
+          </a>
+          <a href="/">
+            <i className="bx bxl-linkedin"></i>
+          </a>
+          <a href="/">
+            <i className="bx bxl-twitter"></i>
+          </a>
+        </div>
+      </footer>
+    </HashRouter>
   );
 }
 
