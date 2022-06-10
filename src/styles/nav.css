@@ -13,7 +13,7 @@ nav {
   font-size: 1.5rem;
   color: var(--text-gray);
 }
-.nav-link {
+.nav-links {
   width: 50%;
   display: flex;
   justify-content: flex-end;
@@ -85,7 +85,7 @@ nav {
   margin-bottom: 10px;
   width: 50%;
 }
-.product-cart-quantity {
+.quantity-of-products {
   border: 1px solid var(--text-gray);
   border-radius: 3px;
   height: 30px;
@@ -94,7 +94,7 @@ nav {
   width: 60px;
   color: var(--text-gray);
 }
-.product-cart-total{
+.subtotal{
   display: flex;
   gap: 15px;
   position: absolute;
@@ -122,6 +122,11 @@ nav {
   background: var(--quaternary);
   padding: 5px 0;
   cursor: pointer;
+}
+.empty-cart{
+  margin: auto;
+  font-size: 2rem;
+  color: var(--secondary);
 }
 @media (min-width: 1000px) {
   nav {

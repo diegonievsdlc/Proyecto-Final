@@ -50,8 +50,9 @@ footer > div a {
   border-radius: 50%;
   background-color: var(--quaternary);
   color: var(--text-gray);
+  cursor: pointer;
 }
-.modal{
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,12 +61,10 @@ footer > div a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 100;
-  transition: .35s;
 }
-
-.modal> div{
+.modal > div {
   width: 300px;
   background-color: var(--primary);
   border-radius: 20px;
@@ -79,7 +78,7 @@ footer > div a {
   padding: 20px;
   font-size: 10px;
 }
-.modal > div button{
+.modal > div button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -99,7 +98,7 @@ footer > div a {
     background: var(--text-gray);
     border-radius: 5px;
   }
-  footer{
+  footer {
     max-width: 1000px;
   }
 }

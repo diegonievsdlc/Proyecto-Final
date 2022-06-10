@@ -1,20 +1,20 @@
 import React from "react";
 import { addProduct } from "../store/slices/cart.slice";
-import { useDispatch } from "react-redux/es/exports";
-import "../styles/productCard.css";
 import { setModal } from "../store/slices/modal.slice";
+import { useDispatch } from "react-redux/es/exports";
 import { useNavigate } from "react-router-dom";
+import "../styles/productCard.css";
 
 const ProductCard = ({ product }) => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const addCart = () => {
-    const productTwo = {
+    const productDates = {
       id: product.id,
       quantity: 1,
     };
-    dispatch(addProduct(productTwo))
-    dispatch(setModal('Producto agregado'))
+    dispatch(addProduct(productDates));
+    dispatch(setModal("Added product."));
   };
   return (
     <li onClick={() => navigate(`/product/${product.id}`)}>

@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { getPucharse } from "../store/slices/pucharse.slice";
+import { getPurchases } from "../store/slices/purchases.slice";
 import "../styles/purchase.css";
 
-const Store = () => {
+const Purchases = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const pucharseData = useSelector((state) => state.pucharse);
+  const purchasesData = useSelector((state) => state.purchases);
   const options = { year: "numeric", month: "long", day: "numeric" };
   useEffect(() => {
-    dispatch(getPucharse());
+    dispatch(getPurchases());
   }, [dispatch]);
   return (
     <div className="purchase">
-      <div className="direccion">
+      <div className="direction">
         <Link className="ruta" to="/">
           Home
         </Link>
@@ -23,7 +23,7 @@ const Store = () => {
       </div>
       <h1>My Purchases</h1>
       <section className="purchase-main">
-        {pucharseData.map((purchase) => (
+        {purchasesData.map((purchase) => (
           <div key={purchase.id}>
             <div className="purchase-header">
               <h3>
@@ -41,7 +41,9 @@ const Store = () => {
                 >
                   <h5>{product.title}</h5>
                   <div>{product.productsInCart.quantity}</div>
-                  <span>$ {product.price * product.productsInCart.quantity}</span>
+                  <span>
+                    $ {product.price * product.productsInCart.quantity}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -52,4 +54,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Purchases;

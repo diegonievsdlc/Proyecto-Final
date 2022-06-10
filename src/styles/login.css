@@ -57,15 +57,17 @@
   padding: 9px;
   width: 100%;
   border: none;
+  cursor: pointer;
 }
-.login span button{
+.login span button {
   border: none;
   color: #2fa8f8;
   background: none;
+  cursor: pointer;
 }
 
 @media (min-width: 1000px) {
-  .login{
+  .login {
     background-color: #f9f9f9;
     width: 30%;
     margin: 50px auto;

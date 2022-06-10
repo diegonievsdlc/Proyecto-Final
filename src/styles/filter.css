@@ -7,7 +7,7 @@
   background-color: transparent;
   color: var(--text-gray);
 }
-.menu-filter {
+.filter-menu {
   width: 80%;
   height: 100vh;
   position: fixed;
@@ -17,7 +17,7 @@
   z-index: 100;
   padding: 50px 10px;
 }
-.menu-filter > button {
+.filter-menu > button {
   border: none;
   font-size: 2rem;
   position: absolute;
@@ -26,19 +26,19 @@
   background: none;
   color: var(--secondary);
 }
-.menu-filter h3 {
+.filter-menu h3 {
   font-size: 1.1rem;
   margin-bottom: 10px;
   color: var(--text-gray);
 }
-.acordeon {
+.accordion {
   padding: 10px;
   width: 100%;
 }
-.acordeon .bloque {
+.accordion .block {
   margin-bottom: 20px;
 }
-.bloque > button {
+.block > button {
   width: 100%;
   margin-bottom: 10px;
   font-size: 16px;
@@ -51,33 +51,33 @@
   border-bottom: 3px solid #c7c1c1;
   background: none;
 }
-.contenido {
+.contents {
   height: 0px;
   padding: 0px;
   overflow: hidden;
   transition: all 0.35s;
 }
-.bloque.active .contenido {
+.block.active .contents {
   height: 170px;
   padding: 10px 20px;
   overflow: visible;
 }
-.contenido > form {
+.contents > form {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
 }
-.contenido > form div {
+.contents > form div {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.contenido > form label{
+.contents > form label {
   color: var(--tertiary);
 }
-.contenido > form div input {
+.contents > form div input {
   border: none;
   outline: none;
   border-bottom: 1px solid var(--text-gray);
@@ -88,7 +88,7 @@
   background-color: transparent;
   color: #fff;
 }
-.contenido > form button {
+.contents > form button {
   background: var(--quaternary);
   border-radius: 5px;
   color: #fff;
@@ -97,24 +97,22 @@
   padding: 8px 15px;
   border: none;
 }
-.contenido ul li {
+.contents ul li {
   padding: 10px 0;
   cursor: pointer;
   color: var(--quaternary);
 }
-
-
 @media (min-width: 1000px) {
-  .Filter > button{
+  .Filter > button {
     display: none;
   }
-  .menu-filter{
+  .filter-menu {
     width: 20%;
     left: 0;
     top: 9.6vh;
     background: transparent;
   }
-  .menu-filter > button{
+  .filter-menu > button {
     display: none;
   }
 }

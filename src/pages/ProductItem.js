@@ -2,17 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { setIsLoading } from "../store/slices/loading.slice";
-import { categoryProduct } from "../store/slices/products.slice";
 import { ProductCard } from "../components";
-import "../styles/productItem.css";
+import { setIsLoading } from "../store/slices/loading.slice";
+import { productPerCategory } from "../store/slices/products.slice";
 import { addProduct } from "../store/slices/cart.slice";
 import { setModal } from "../store/slices/modal.slice";
+import "../styles/productItem.css";
 
 const ProductItem = () => {
   const [data, setData] = useState({});
-  const productosIgualles = useSelector((state) => state.products);
   const [quantity, setQuantity] = useState(1);
+  const sameProducts = useSelector((state) => state.products);
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,31 +24,31 @@ const ProductItem = () => {
           (productItem) => productItem.id === Number(id)
         );
         setData(product);
-        dispatch(categoryProduct(product.category.id));
+        dispatch(productPerCategory(product.category.id));
       })
       .finally(() => dispatch(setIsLoading(false)));
   }, [id, dispatch]);
-  const addCart = () => {
+  const addToCart = () => {
     const product = {
       id: id,
       quantity: quantity,
     };
-    dispatch(addProduct(product))
-    dispatch(setModal('Producto agregado'))
+    dispatch(addProduct(product));
+    dispatch(setModal("Added product."));
   };
-  const restarQuantity = () => {
-    if(quantity > 1)setQuantity(quantity - 1)
-  }
+  const lowerQuantity = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
+  };
   return (
     <div>
-      <div className="direccion">
+      <div className="direction">
         <Link className="ruta" to="/">
           Home
         </Link>
         <div></div>
         <span>{data.title}</span>
       </div>
-      <div className="padre-todo-poderoso">
+      <div className="parent-container">
         <section className="img-product">
           <button>
             <i className="bx bx-chevron-left"></i>
@@ -60,7 +60,7 @@ const ProductItem = () => {
         </section>
         <section className="Product-detail">
           <h2>{data.title}</h2>
-          <section className="Product-info-response">
+          <section className="Product-info-responsive">
             <p>{data.description}</p>
           </section>
           <div>
@@ -71,7 +71,7 @@ const ProductItem = () => {
             <div className="quantity">
               <span>Quantity</span>
               <div>
-                <button onClick={restarQuantity}>-</button>
+                <button onClick={lowerQuantity}>-</button>
                 <input
                   type="number"
                   onChange={(e) => setQuantity(e.target.value)}
@@ -81,7 +81,7 @@ const ProductItem = () => {
               </div>
             </div>
           </div>
-          <button onClick={addCart}>
+          <button onClick={addToCart}>
             Add to cart <i className="bx bx-cart"></i>
           </button>
         </section>
@@ -92,7 +92,7 @@ const ProductItem = () => {
       <section className="products-suggestions">
         <h3>Discover similar items</h3>
         <div>
-          {productosIgualles?.map((product) => (
+          {sameProducts?.map((product) => (
             <Link key={product.id} to={`/product/${product.id}`}>
               <ProductCard product={product} />
             </Link>

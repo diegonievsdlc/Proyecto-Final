@@ -6,9 +6,7 @@ export const productsSlice = createSlice({
   name: "products",
   initialState: [],
   reducers: {
-    setProducts: (store, action) => {
-      return action.payload;
-    },
+    setProducts: (store, action) => action.payload,
   },
 });
 
@@ -25,16 +23,21 @@ export const getProducts = () => (dispatch) => {
 export const searchProduct = (query) => (dispatch) => {
   dispatch(setIsLoading(true));
   return axios
-    .get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?query=${query}`)
+    .get(
+      `https://ecommerce-api-react.herokuapp.com/api/v1/products?query=${query}`
+    )
     .then((res) => dispatch(setProducts(res.data.data.products)))
     .finally(() => dispatch(setIsLoading(false)));
 };
 
-export const categoryProduct = (categoryId) => (dispatch) => {
-    dispatch(setIsLoading(true));
-    return axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${categoryId}`)
-        .then(res => dispatch(setProducts(res.data.data.products)))
-        .finally(() => dispatch(setIsLoading(false)));
-}
+export const productPerCategory = (categoryId) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return axios
+    .get(
+      `https://ecommerce-api-react.herokuapp.com/api/v1/products?category=${categoryId}`
+    )
+    .then((res) => dispatch(setProducts(res.data.data.products)))
+    .finally(() => dispatch(setIsLoading(false)));
+};
 
 export default productsSlice.reducer;

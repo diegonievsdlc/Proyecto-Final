@@ -1,18 +1,18 @@
-.Search{
+.Search {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
-.Search input{
+.Search input {
   border: 1px solid var(--light-gray);
   width: 270px;
   height: 45px;
   padding: 5px 14px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   outline: none;
 }
-.Search button{
+.Search button {
   width: 45px;
   aspect-ratio: 1;
   border: none;
@@ -20,12 +20,11 @@
   color: #fff;
   cursor: pointer;
 }
-
 @media (min-width: 1000px) {
-  .Search input{
+  .Search input {
     width: 90%;
   }
-  .Search button{
+  .Search button {
     width: 90px;
     height: 45px;
     font-size: 1.7rem;

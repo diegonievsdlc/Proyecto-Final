@@ -4,4 +4,4 @@ export { default as Search } from "./Search";
 export { default as ProductCard } from "./ProductCard";
 export { default as LoadingScreen } from "./LoadingScreen";
 export { default as ProtectedRoutes } from "./ProtectedRoutes";
-export {default as Modal} from './Modal'
+export { default as Modal } from "./Modal";

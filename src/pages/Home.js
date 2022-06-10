@@ -3,14 +3,14 @@ import "../styles/home.css";
 import { Search, Filter, ProductCard } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../store/slices/products.slice";
-import { getCategory } from "../store/slices/categories.slice";
+import { getCategories } from "../store/slices/categories.slice";
 
 const Home = () => {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
-    dispatch(getCategory())
+    dispatch(getCategories());
   }, [dispatch]);
   return (
     <div className="Home">
@@ -19,11 +19,9 @@ const Home = () => {
         <Filter />
       </div>
       <ul className="main">
-        {
-          products.map(product => (
-              <ProductCard product={product} key={product.id}/>
-          ))
-        }
+        {products.map((product) => (
+          <ProductCard product={product} key={product.id} />
+        ))}
       </ul>
     </div>
   );
