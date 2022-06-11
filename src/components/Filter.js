@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setModal } from "../store/slices/modal.slice";
-import { productPerCategory } from "../store/slices/products.slice";
+import { productPerCategory, productsPerPrice } from "../store/slices/products.slice";
 import "../styles/filter.css";
 
 const Filter = () => {
   const [openFilter, setOpenFilter] = useState(false);
   const [showCategory, setShowCategory] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
+  const [from, setFrom] = useState(0);
+  const [to, setTo] = useState(0);
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
   const filterPrice = (e) => {
     e.preventDefault();
-    dispatch(setModal("Option not available"));
+    dispatch(productsPerPrice(Number(from), Number(to)))
   };
   return (
     <div className="Filter">
@@ -41,11 +42,21 @@ const Filter = () => {
               <form onSubmit={filterPrice}>
                 <div>
                   <label htmlFor="price_from">From</label>
-                  <input type="number" id="price_from" />
+                  <input
+                    type="number"
+                    id="price_from"
+                    onChange={(e) => setFrom(e.target.value)}
+                    value={from}
+                  />
                 </div>
                 <div>
                   <label htmlFor="price_to">To</label>
-                  <input type="number" id="price_to" />
+                  <input
+                    type="number"
+                    id="price_to"
+                    onChange={(e) => setTo(e.target.value)}
+                    value={to}
+                  />
                 </div>
                 <button>Filter Price</button>
               </form>
