@@ -44,6 +44,7 @@ const Nav = () => {
       );
     }
     setTotal(totalCart);
+    console.log(totalCart);
   };
   const buy = () => {
     if (cartData.length === 0) {
@@ -88,6 +89,7 @@ const Nav = () => {
                 <div className="quantity-of-products">
                   {product.productsInCart.quantity}
                 </div>
+                <span className="priceByUnit">Price by unit {product.price}</span>
                 <button onClick={() => removeProductFromCart(product.id)}>
                   <i className="bx bx-trash"></i>
                 </button>
