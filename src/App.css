@@ -18,10 +18,6 @@ body {
   font-family: "Kdam Thmor Pro", sans-serif;
   background-color: var(--primary);
 }
-.img-2{
-  max-width: 250px;
-  height: 199px;
-}
 footer {
   padding: 30px 0;
   background: var(--primary);

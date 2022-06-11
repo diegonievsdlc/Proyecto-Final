@@ -15,7 +15,7 @@
   align-items: center;
   padding: 10px;
   background-color: #fff;
-  border-radius: 150px;
+  border-radius: 140px;
 }
 .img-product button {
   background-color: var(--secondary);
@@ -120,7 +120,11 @@
   color: var(--primary);
   margin-bottom: 20px;
 }
-
+.img-2{
+  width: 55%;
+  height: auto;
+  object-fit: cover;
+}
 @media (min-width: 1000px) {
   .direction {
     padding: 40px;
@@ -130,9 +134,9 @@
     width: 85%;
     margin: auto;
   }
-  .img-product img {
-    width: 60%;
-    height: auto;
+  .img-2 {
+    width: auto;
+    height: 300px;
   }
   .Product-info-responsive {
     display: block;

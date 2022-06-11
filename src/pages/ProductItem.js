@@ -39,6 +39,23 @@ const ProductItem = () => {
   const lowerQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
+
+  const [indexImg, setIndexImg] = useState(0);
+
+  const prev = () => {
+    if (indexImg === 0) {
+      setIndexImg(2);
+    } else {
+      setIndexImg(indexImg - 1);
+    }
+  };
+  const next = () => {
+    if (indexImg === 2) {
+      setIndexImg(0);
+    } else {
+      setIndexImg(indexImg + 1);
+    }
+  };
   return (
     <div>
       <div className="direction">
@@ -50,11 +67,15 @@ const ProductItem = () => {
       </div>
       <div className="parent-container">
         <section className="img-product">
-          <button>
+          <button onClick={prev}>
             <i className="bx bx-chevron-left"></i>
           </button>
-          <img className="img-2" src={data.productImgs} alt="Product Img" />
-          <button>
+          <img
+            className="img-2"
+            src={data.productImgs?.[indexImg]}
+            alt="Product Img"
+          />
+          <button onClick={next}>
             <i className="bx bx-chevron-right"></i>
           </button>
         </section>
