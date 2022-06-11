@@ -16,6 +16,9 @@ const ProductCard = ({ product }) => {
     dispatch(addProduct(productDates));
     dispatch(setModal("Added product."));
   };
+  const changeBtnCart = () => {
+    addCart()
+  }
   return (
     <li onClick={() => navigate(`/product/${product.id}`)}>
       <div className="card">
@@ -28,7 +31,7 @@ const ProductCard = ({ product }) => {
             <p>Price</p>
             <span>$ {product.price}</span>
           </div>
-          <button onClick={addCart}>
+          <button onClick={changeBtnCart}>
             <i className="bx bx-cart"></i>
           </button>
         </div>

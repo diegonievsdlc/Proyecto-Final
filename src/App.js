@@ -7,6 +7,10 @@ import { useSelector } from "react-redux";
 function App() {
   const isLoading = useSelector((state) => state.loading);
   const showModal = useSelector((state) => state.modal);
+  window.scroll({
+    top: 1,
+    behavior: 'smooth'
+  });
   return (
     <HashRouter>
       {isLoading && <LoadingScreen />}
