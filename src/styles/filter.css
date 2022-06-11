@@ -102,6 +102,9 @@
   cursor: pointer;
   color: var(--quaternary);
 }
+.contents ul li:hover{
+  color: #fff;
+}
 @media (min-width: 1000px) {
   .Filter > button {
     display: none;

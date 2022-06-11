@@ -53,7 +53,7 @@ const ProductItem = () => {
           <button>
             <i className="bx bx-chevron-left"></i>
           </button>
-          <img className="img" src={data.productImgs} alt="Product Img" />
+          <img className="img-2" src={data.productImgs} alt="Product Img" />
           <button>
             <i className="bx bx-chevron-right"></i>
           </button>

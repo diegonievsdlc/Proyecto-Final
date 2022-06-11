@@ -3,12 +3,23 @@
   height: 199px;
   object-fit: contain;
   margin: auto;
+  position: absolute;
+  transition: .5s;
+}
+.img-card-animate-2{
+  opacity: 0;
 }
 .card {
   width: 313px;
   min-height: 390px;
   border: 1px solid var(--tertiary);
   border-radius: 10px;
+}
+.card:hover .img-card-animate-2{
+  opacity: 1;
+}
+.card:hover .img-card-animate{
+  opacity: 0;
 }
 .card-img {
   padding: 25px 31px;

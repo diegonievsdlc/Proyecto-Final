@@ -23,7 +23,8 @@ const ProductCard = ({ product }) => {
     <li onClick={() => navigate(`/product/${product.id}`)}>
       <div className="card">
         <div className="card-img">
-          <img className="img" src={product.productImgs[0]} alt="" />
+          <img className="img img-card-animate" src={product.productImgs[0]} alt="" />
+          <img className="img img-card-animate-2" src={product.productImgs[1]} alt="" />
         </div>
         <div className="card-info">
           <h3>{product.title}</h3>
